@@ -40,7 +40,7 @@ else
 fi
 
 # --- 実行権限 ---
-chmod +x "$DOTFILES/bin/tmux-2p"
+chmod +x "$DOTFILES/bin/2p"
 
 echo ""
 echo "bootstrap complete."

@@ -16,7 +16,7 @@
 
 ~/dotfiles/
 ├── bin/
-│   └── tmux-2p
+│   └── 2p
 ├── config/
 │   ├── tmux/
 │   │   └── tmux.conf
@@ -29,7 +29,7 @@
 ├── Brewfile
 └── CLAUDE.md
 
-tmux-2p は tmux セッション生成用テンプレートスクリプトである。
+2p は tmux セッション生成用テンプレートスクリプトである。
 config/ 配下に各ツールの設定ファイルを集約し、bootstrap.sh でシンボリックリンクを作成する。
 
 ---
@@ -48,15 +48,15 @@ source ~/.zshrc
 
 確認：
 
-which tmux-2p
+which 2p
 
 期待出力：
 
-/Users/<user>/dotfiles/bin/tmux-2p
+/Users/<user>/dotfiles/bin/2p
 
 ---
 
-# 3. tmux-2p 仕様
+# 3. 2p 仕様
 
 ## 3.1 概要
 
@@ -75,7 +75,7 @@ which tmux-2p
 
 ## 3.2 コマンド仕様
 
-tmux-2p [session_name] [project_root]
+2p [session_name] [project_root]
 
 省略ルール：
 
@@ -84,9 +84,9 @@ tmux-2p [session_name] [project_root]
 
 使用例：
 
-tmux-2p  
-tmux-2p myapp  
-tmux-2p myapp ~/src/myapp  
+2p
+2p myapp
+2p myapp ~/src/myapp
 
 ---
 
@@ -111,7 +111,7 @@ tmux display-message -p "#{window_layout}"
 4. セッションを再生成
 
 tmux kill-session -t <session>  
-tmux-2p <session> <root>  
+2p <session> <root>
 
 ---
 
@@ -138,7 +138,7 @@ brew bundle --file=~/dotfiles/Brewfile
 これにより以下が自動実行される：
 - 設定ファイルのシンボリックリンク作成（~/.tmux.conf, ~/.config/yazi/, ~/.config/ghostty/）
 - PATH設定（.zshrc への追記）
-- bin/tmux-2p への実行権限付与
+- bin/2p への実行権限付与
 
 反映：
 
@@ -150,7 +150,7 @@ source ~/.zshrc
 
 任意ディレクトリで：
 
-tmux-2p
+2p
 
 ---
 
@@ -158,9 +158,9 @@ tmux-2p
 
 PATH方式を使用しない場合：
 
-mkdir -p ~/.local/bin  
-ln -s ~/dotfiles/bin/tmux-2p ~/.local/bin/tmux-2p  
-chmod +x ~/dotfiles/bin/tmux-2p  
+mkdir -p ~/.local/bin
+ln -s ~/dotfiles/bin/2p ~/.local/bin/2p
+chmod +x ~/dotfiles/bin/2p
 
 .zshrc に：
 
