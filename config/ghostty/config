@@ -1,0 +1,7 @@
+# スクロール量
+scrollback-limit = 100000
+
+font-family = "JetBrains Mono"
+
+# OptionキーをAltとして送信（tmuxのM-キーバインド用）
+macos-option-as-alt = true

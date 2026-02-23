@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# tmux-2p: 2ペイン構成で tmux セッションを生成する
+# 左ペイン: yazi  右ペイン: claude
+
+SESSION_NAME="${1:-$(basename "$PWD")}"
+PROJECT_ROOT="${2:-$PWD}"
+
+LAYOUT='657d,183x51,0,0{106x51,0,0,0,76x51,107,0,2}'
+
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux switch-client -t "$SESSION_NAME" 2>/dev/null || tmux attach-session -t "$SESSION_NAME"
+  exit 0
+fi
+
+tmux new-session -d -s "$SESSION_NAME" -c "$PROJECT_ROOT" "yazi"
+tmux split-window -h -t "$SESSION_NAME" -c "$PROJECT_ROOT" "claude"
+tmux select-layout -t "$SESSION_NAME" "$LAYOUT" 2>/dev/null || true
+tmux switch-client -t "$SESSION_NAME" 2>/dev/null || tmux attach-session -t "$SESSION_NAME"
