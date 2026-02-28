@@ -4,4 +4,4 @@ ratio = [1, 2, 6]
 
 # プレビューの折り返し表示を有効化
 [preview]
-wrap = true
+wrap = "yes"
