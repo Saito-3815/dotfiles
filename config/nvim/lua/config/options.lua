@@ -9,3 +9,4 @@ vim.opt.conceallevel = 0
 vim.opt.spell = false
 vim.opt.foldlevel = 99
 vim.opt.foldenable = false
+vim.opt.wrap = true
