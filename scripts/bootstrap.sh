@@ -29,6 +29,7 @@ link_file() {
 link_file "$DOTFILES/config/tmux/tmux.conf"    "$HOME/.tmux.conf"
 link_file "$DOTFILES/config/yazi/yazi.toml"     "$HOME/.config/yazi/yazi.toml"
 link_file "$DOTFILES/config/ghostty/config"     "$HOME/.config/ghostty/config"
+link_file "$DOTFILES/config/nvim"              "$HOME/.config/nvim"
 
 # --- PATH設定 ---
 if ! grep -q 'dotfiles/bin' "$HOME/.zshrc" 2>/dev/null; then

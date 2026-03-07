@@ -20,6 +20,8 @@
 ├── config/
 │   ├── tmux/
 │   │   └── tmux.conf
+│   ├── nvim/
+│   │   └── (LazyVim設定一式)
 │   ├── yazi/
 │   │   └── yazi.toml
 │   └── ghostty/
@@ -136,7 +138,7 @@ brew bundle --file=~/dotfiles/Brewfile
 ~/dotfiles/scripts/bootstrap.sh
 
 これにより以下が自動実行される：
-- 設定ファイルのシンボリックリンク作成（~/.tmux.conf, ~/.config/yazi/, ~/.config/ghostty/）
+- 設定ファイルのシンボリックリンク作成（~/.tmux.conf, ~/.config/yazi/, ~/.config/ghostty/, ~/.config/nvim）
 - PATH設定（.zshrc への追記）
 - bin/2p への実行権限付与
 
