@@ -94,7 +94,7 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "BufEnter" }, {
 -- Claude Code CLIとの併用: 安全な自動保存
 -- 保存前にchecktimeで外部変更を取り込み、Claude Codeの編集を上書きしない
 -- 通常ファイルのみ対象とし、特殊バッファは無視する
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertLeave" }, {
   group = vim.api.nvim_create_augroup("autosave_for_claude_code", { clear = true }),
   callback = function()
     local buffer = vim.api.nvim_get_current_buf()

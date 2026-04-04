@@ -11,5 +11,5 @@ vim.opt.foldlevel = 99
 vim.opt.foldenable = false
 vim.opt.wrap = true
 
--- Claude Code CLIとの併用: 操作停止後1秒で自動保存を発火させる
+-- Claude Code CLIとの併用: CursorHold発火間隔を1秒に設定（checktimeによる外部変更検知に使用）
 vim.o.updatetime = 1000
