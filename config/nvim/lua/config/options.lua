@@ -10,3 +10,6 @@ vim.opt.spell = false
 vim.opt.foldlevel = 99
 vim.opt.foldenable = false
 vim.opt.wrap = true
+
+-- Claude Code CLIとの併用: 操作停止後1秒で自動保存を発火させる
+vim.o.updatetime = 1000

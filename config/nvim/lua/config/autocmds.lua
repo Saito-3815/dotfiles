@@ -8,3 +8,11 @@
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
 vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+-- Claude Code CLIとの併用: 操作停止時・バッファ離脱時・フォーカス喪失時に自動保存
+-- LazyVimがautoread + checktimeで外部変更の自動リロードを担当し、
+-- このautocmdがNeovim側の編集を即座にディスクに反映する
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI", "BufLeave", "FocusLost" }, {
+  group = vim.api.nvim_create_augroup("autosave_for_claude_code", { clear = true }),
+  command = "silent! write",
+})
