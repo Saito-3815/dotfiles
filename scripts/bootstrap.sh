@@ -42,6 +42,7 @@ fi
 
 # --- 実行権限 ---
 chmod +x "$DOTFILES/bin/2p"
+chmod +x "$DOTFILES/bin/3p"
 
 echo ""
 echo "bootstrap complete."

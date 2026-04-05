@@ -1,13 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 2p: 2ペイン構成で tmux セッションを生成する
-# 左ペイン: yazi  右ペイン: claude
+# 3p: 3ペイン構成で tmux セッションを生成する
+# 左ペイン: yazi  中ペイン: yazi  右ペイン: claude
 
 SESSION_NAME="${1:-$(basename "$PWD")}"
 PROJECT_ROOT="${2:-$PWD}"
-
-LAYOUT='657d,183x51,0,0{106x51,0,0,0,76x51,107,0,2}'
 
 attach_or_switch() {
   if [ -n "${TMUX:-}" ]; then
@@ -25,6 +23,8 @@ fi
 tmux new-session -d -s "$SESSION_NAME" -c "$PROJECT_ROOT"
 tmux send-keys -t "$SESSION_NAME:0.0" "yazi" C-m
 tmux split-window -h -t "$SESSION_NAME" -c "$PROJECT_ROOT"
-tmux send-keys -t "$SESSION_NAME:0.1" "claude" C-m
-tmux select-layout -t "$SESSION_NAME" "$LAYOUT" 2>/dev/null || true
+tmux send-keys -t "$SESSION_NAME:0.1" "yazi" C-m
+tmux split-window -h -t "$SESSION_NAME" -c "$PROJECT_ROOT"
+tmux send-keys -t "$SESSION_NAME:0.2" "claude" C-m
+tmux select-layout -t "$SESSION_NAME" even-horizontal
 attach_or_switch
