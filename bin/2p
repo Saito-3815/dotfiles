@@ -4,7 +4,7 @@ set -euo pipefail
 # 2p: 2ペイン構成で tmux セッションを生成する
 # 左ペイン: yazi  右ペイン: claude
 
-SESSION_NAME="${1:-$(basename "$PWD")}"
+SESSION_NAME="2p-${1:-$(basename "$PWD")}"
 PROJECT_ROOT="${2:-$PWD}"
 
 LAYOUT='657d,183x51,0,0{106x51,0,0,0,76x51,107,0,2}'

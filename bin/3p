@@ -4,7 +4,7 @@ set -euo pipefail
 # 3p: 3ペイン構成で tmux セッションを生成する
 # 左ペイン: yazi  中ペイン: yazi  右ペイン: claude
 
-SESSION_NAME="${1:-$(basename "$PWD")}"
+SESSION_NAME="3p-${1:-$(basename "$PWD")}"
 PROJECT_ROOT="${2:-$PWD}"
 
 attach_or_switch() {
