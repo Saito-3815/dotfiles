@@ -6,5 +6,8 @@ font-family = "JetBrains Mono"
 # OptionキーをAltとして送信（tmuxのM-キーバインド用）
 macos-option-as-alt = true
 
-# Shift+クリックでtmuxのマウスキャプチャをバイパスしURLを開く
-mouse-shift-capture = true
+# URLは Shift+Cmd+クリック でブラウザを開く
+#   - Cmd: Ghostty標準のlink-url（macOSのURL認識修飾キー）
+#   - Shift: mouse-shift-capture=false によりtmuxのマウスキャプチャを回避しGhostty側で処理
+# ※Cmd単体クリックは不可（xtermマウスプロトコルがSuper/Cmdを送れないため、tmux mouse on下では判別できない）
+mouse-shift-capture = false

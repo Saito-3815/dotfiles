@@ -73,6 +73,14 @@ which 2p
 既存セッションが存在する場合は切り替え、
 存在しない場合は新規作成する。
 
+## 3.1.1 セッション内でのURLオープン
+
+claude ペイン等に表示された URL は **Shift+Cmd+クリック** でブラウザを開く。
+
+- tmux の `mouse on` 環境では、Cmd 単体クリックはクリックが tmux に吸われて開けない。
+- Shift が Ghostty のマウスキャプチャ回避（`mouse-shift-capture = false`）を、Cmd が URL 認識（`link-url`）を担うため、両方の併用が必要。
+- 設定は `config/ghostty/config` の `mouse-shift-capture = false`。
+
 ---
 
 ## 3.2 コマンド仕様
